@@ -1,13 +1,14 @@
 import React from 'react';
+import './ScoreBar.css';
 
 const ScoreBar = ({ score, totalQuestions }) => {
   const percentage = Math.floor((score / totalQuestions) * 100);
 
   return (
-    <div>
+    <div className="scoreBarContainer">
       <h3>Score: {score}</h3>
-      <div className="score-bar">
-        <div className="score-fill" style={{ width: `${percentage}%` }}></div>
+      <div className="scoreBar">
+        <div className="scoreBarFill" style={{ width: `${percentage}%` }}></div>
       </div>
     </div>
   );
