@@ -1,32 +1,76 @@
+/* Quiz.css */
 .quizContainer {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .answerContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .answerButton {
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: #f5f5f5;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .answerButton:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .score {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  
+  text-align: center;
+  margin: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.question {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+
+.quizFinished {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.quizFinished h2 {
+  margin-bottom: 10px;
+}
+
+.quizFinished p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+button.restart-btn {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.restart-btn:hover {
+  background-color: #218838;
+}

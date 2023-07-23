@@ -1,0 +1,27 @@
+/* Home.css */
+.homeContainer {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  h1 {
+    font-size: 32px;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .startQuizLink {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .startQuizLink:hover {
+    background-color: #0056b3;
+  }
+  
