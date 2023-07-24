@@ -9,6 +9,8 @@ const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
+  const [answerSelected, setAnswerSelected] = useState(false);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const { amount, category, difficulty, type } = useParams();
   const history = useHistory();
@@ -17,7 +19,7 @@ const Quiz = () => {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(`https://opentdb.com/api.php`, {
-          params: { amount, category, difficulty, type }
+          params: { amount, category, difficulty, type },
         });
         setQuestions(response.data.results);
       } catch (error) {
@@ -39,6 +41,15 @@ const Quiz = () => {
     if (currentQuestion === questions.length - 1) {
       setQuizFinished(true);
     }
+
+    setAnswerSelected(true);
+    setSelectedAnswer(answer);
+
+    // Set a timeout to reset the selected answer after a brief delay
+    setTimeout(() => {
+      setAnswerSelected(false);
+      setSelectedAnswer(null);
+    }, 1000);
   };
 
   const restartQuiz = () => {
@@ -53,10 +64,12 @@ const Quiz = () => {
 
   if (quizFinished) {
     return (
-      <div>
+      <div className="quizFinishedContainer">
         <h2>Quiz Finished!</h2>
         <p>Your Score: {score}</p>
-        <button onClick={restartQuiz}>Start Again</button>
+        <button onClick={restartQuiz} className="restartBtn">
+          Start Again
+        </button>
       </div>
     );
   }
@@ -66,13 +79,19 @@ const Quiz = () => {
   const shuffledAnswers = shuffleArray(answers);
 
   return (
-    <div>
+    <div className="quizContainer">
       <h2>Question {currentQuestion + 1}</h2>
-      <div dangerouslySetInnerHTML={{ __html: currentQuestionObj.question }} />
-      <ul>
+      <div className="question" dangerouslySetInnerHTML={{ __html: currentQuestionObj.question }} />
+      <ul className="answerList">
         {shuffledAnswers.map((answer, index) => (
-          <li key={index}>
-            <button onClick={() => handleAnswer(answer)}>{answer}</button>
+          <li key={index} className="answer">
+            <button
+              onClick={() => handleAnswer(answer)}
+              className={`answerBtn ${answerSelected && answer === selectedAnswer ? (answer === currentQuestionObj.correct_answer ? 'correct' : 'incorrect') : ''}`}
+              disabled={answerSelected}
+            >
+              {answer}
+            </button>
           </li>
         ))}
       </ul>

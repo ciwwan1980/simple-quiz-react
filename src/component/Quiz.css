@@ -4,6 +4,16 @@
   margin: 20px;
 }
 
+.quizFinishedContainer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 400px;
+}
+
 h2 {
   font-size: 24px;
   margin-bottom: 10px;
@@ -14,20 +24,20 @@ h2 {
   margin-bottom: 10px;
 }
 
-ul {
+.answerList {
   list-style: none;
   padding: 0;
 }
 
-li {
+.answer {
   margin-bottom: 8px;
 }
 
-button {
+.answerBtn {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #fff;
+  background-color: #f5f5f5;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
@@ -35,30 +45,19 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+.answerBtn.correct {
+  background-color: #5cb85c;
+}
+
+.answerBtn.incorrect {
+  background-color: #d9534f;
+}
+
+.answerBtn:hover {
   background-color: #f0f0f0;
 }
 
-.quizFinished {
-  text-align: center;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  max-width: 400px;
-}
-
-.quizFinished h2 {
-  margin-bottom: 10px;
-}
-
-.quizFinished p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-button.restart-btn {
+.restartBtn {
   display: block;
   width: 200px;
   margin: 0 auto;
@@ -71,6 +70,6 @@ button.restart-btn {
   cursor: pointer;
 }
 
-button.restart-btn:hover {
+.restartBtn:hover {
   background-color: #218838;
 }
