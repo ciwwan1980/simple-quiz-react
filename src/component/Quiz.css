@@ -46,7 +46,7 @@ h2 {
 }
 
 .answerBtn.correct {
-  background-color: #5cb85c;
+  background-color: yellow;
 }
 
 .answerBtn.incorrect {

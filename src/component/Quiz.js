@@ -7,7 +7,8 @@ import './Quiz.css';
 const Quiz = () => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [incorrectAnswers, setIncorrectAnswers] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
   const [answerSelected, setAnswerSelected] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -32,9 +33,13 @@ const Quiz = () => {
 
   const handleAnswer = (answer) => {
     const currentQuestionObj = questions[currentQuestion];
+    const isAnswerCorrect = answer === currentQuestionObj.correct_answer;
 
-    if (answer === currentQuestionObj.correct_answer) {
-      setScore(score + 1);
+    // Update the correct and incorrect answers count
+    if (isAnswerCorrect) {
+      setCorrectAnswers(correctAnswers + 1);
+    } else {
+      setIncorrectAnswers(incorrectAnswers + 1);
     }
 
     setCurrentQuestion(currentQuestion + 1);
@@ -54,7 +59,8 @@ const Quiz = () => {
 
   const restartQuiz = () => {
     setCurrentQuestion(0);
-    setScore(0);
+    setCorrectAnswers(0);
+    setIncorrectAnswers(0);
     setQuizFinished(false);
   };
 
@@ -66,7 +72,8 @@ const Quiz = () => {
     return (
       <div className="quizFinishedContainer">
         <h2>Quiz Finished!</h2>
-        <p>Your Score: {score}</p>
+        <p>Correct Answers: {correctAnswers}</p>
+        <p>Incorrect Answers: {incorrectAnswers}</p>
         <button onClick={restartQuiz} className="restartBtn">
           Start Again
         </button>
@@ -95,7 +102,7 @@ const Quiz = () => {
           </li>
         ))}
       </ul>
-      <ScoreBar score={score} totalQuestions={questions.length} />
+      <ScoreBar correctScore={correctAnswers} incorrectScore={incorrectAnswers} totalQuestions={questions.length} />
     </div>
   );
 };
