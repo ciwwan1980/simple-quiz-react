@@ -14,7 +14,7 @@ const Quiz = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   const { amount, category, difficulty, type } = useParams();
-  const history = useHistory();
+
 
   useEffect(() => {
     const fetchQuestions = async () => {

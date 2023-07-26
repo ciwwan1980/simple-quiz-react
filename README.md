@@ -1,15 +1,21 @@
-# Getting Started with Create React App
 
 # Getting Started with Create React App
 
 
-### `npm start`
+## Installation
+ - Clone the repository
+ - `npm install` 
 
-## How to fix error:0308010C:digital envelope routines::unsupported on NodeJS
+ ## How to fix error:0308010C:digital envelope routines::unsupported on NodeJS
+ - `npm install webpack@latest`   
+ - `npm install react-scripts@5`     
+ - To run the application `npm start` 
 
-1-  npm install webpack@latest
 
-2-  npm install react-scripts@5
+### Deployment
+- I deploy the App on vercel
+- The link to the project is here:
+    https://simple-quiz-react.vercel.app/
 
 
 
